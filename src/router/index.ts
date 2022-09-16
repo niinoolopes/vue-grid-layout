@@ -7,10 +7,10 @@ Vue.use(VueRouter)
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    redirect: '/vue-grid-layout'
+    redirect: '/vue-grid-layout/'
   },
   {
-    path: '/vue-grid-layout',
+    path: '/vue-grid-layout/',
     name: 'home',
     component: HomeView
   },
