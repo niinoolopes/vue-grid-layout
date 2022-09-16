@@ -4,5 +4,5 @@ module.exports = defineConfig({
   devServer: {
     port: '3000',
   },
-  publicPath: 'https://niinoolopes.github.io/vue-grid-layout/'
+  publicPath: 'https://niinoolopes.github.io/vue-grid-layout/',
 })
