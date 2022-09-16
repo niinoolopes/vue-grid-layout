@@ -1,0 +1,41 @@
+<template>
+  <div id="app" class="container position-relative d-flex flex-column overflow-hidden">
+    <AppPanel />
+
+    <AppHeader />
+
+    <router-view class="flex-grow-1 overflow-auto" />
+  </div>
+</template>
+
+<script lang="ts">
+import Vue from "vue";
+import AppHeader from "./components/layout/Header.vue";
+import AppPanel from "./components/layout/Panel/index.vue";
+import { LocalStorageValues } from "./types";
+import { localStorage } from "@/utils/localStorage";
+
+export default Vue.extend({
+  components: { AppHeader, AppPanel },
+
+  created() {
+    this.initial();
+  },
+
+  methods: {
+    initial(): void {
+      const { items, edit, logged } = localStorage();
+
+      Array.from([
+        ["setItems", items],
+        ["setEdit", edit],
+        ["setLogged", logged],
+      ]).forEach((args) => {
+        const [action, payload] = args as [string, LocalStorageValues];
+
+        this.$store.dispatch(action, payload);
+      });
+    },
+  },
+});
+</script>

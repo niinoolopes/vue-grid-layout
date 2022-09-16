@@ -1,0 +1,26 @@
+.vue-grid {
+  &-layout {
+    margin: -8px;
+  }
+
+  &-item {
+    border: 1px solid rgba(var(--bs-primary-rgb),0.15);
+    &:not(&.vue-resizable) {
+      box-shadow: 0 0.125rem 0.25rem rgba(var(--bs-primary-rgb),0.1) !important;
+    }
+    &.vue-resizable {
+      box-shadow: 0 0.5rem 0.5rem rgba(var(--bs-primary-rgb),0.15) !important;
+    }
+  }
+}
+.vue-draggable-dragging {
+  background-color: var(--bs-white);
+
+}
+.vue-grid-item.vue-grid-placeholder {
+  background: var(--bs-primary);
+  opacity: 0.1;
+  transition-duration: 100ms;
+  z-index: 2;
+  user-select: none;
+} 

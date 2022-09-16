@@ -1,0 +1,20 @@
+.panel-settings{
+  background-color: var(--bs-white);
+  margin-top: 2vh;
+  min-height: 96vh;
+  min-width: 300px;
+  transition: 0.33s;
+  // top: 10vh;
+  top: 0;
+  
+  left: -5%;
+  opacity: 0;
+  z-index: 0;
+
+  &.active {
+    box-shadow: 0.125rem 0.125rem 0.25rem rgba(0,0,0, 0.2);
+    left: 0;
+    opacity: 1;
+    z-index: 1;
+  }
+}
