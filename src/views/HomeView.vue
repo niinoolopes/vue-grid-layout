@@ -40,7 +40,7 @@
     >
       <VueGridItem
         v-bind="{ ...vBindGridItem }"
-        class="rounded p-2 d-flex flex-column"
+        :class="`rounded d-flex flex-column p-1 ${gridEdit ? 'pb-3' : ''}`"
         v-for="item in gridItems"
         :key="item.i"
         :x="item.x"
@@ -50,7 +50,7 @@
         :i="item.i"
         @resize="resizeEvent"
       >
-        <Item :itemData="item.data" />
+        <Item :itemData="item.data" v-bind="VBindItem" />
       </VueGridItem>
     </VueGridWrapper>
   </div>
@@ -83,14 +83,21 @@ export default defineComponent({
         (item) => item.data.active
       );
     },
-    vBindGridItem() {
+    vBindGridItem(): Record<string, unknown> {
       return {
         class: {
-          // 'shadow-sm': !this.gridEdit,
           shadow: this.gridEdit,
         },
       };
     },
+    VBindItem(): Record<string, unknown> {
+      return {
+        class: [
+          'gridItem',
+          { editing: this.gridEdit },
+        ]
+      }
+    }
   },
 
   methods: {
