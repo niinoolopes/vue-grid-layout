@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkp_vue2_grid_layout"]=self["webpackChunkp_vue2_grid_layout"]||[]).push([[443],{2323:function(u,t,n){n.r(t),n.d(t,{default:function(){return i}});var e=function(){var u=this;u._self._c;return u._m(0)},s=[function(){var u=this,t=u._self._c;return t("div",{staticClass:"about"},[t("h1",[u._v("This is an about page")])])}],a=n(1001),l={},r=(0,a.Z)(l,e,s,!1,null,null,null),i=r.exports}}]);
+//# sourceMappingURL=about.14e4bc72.js.map
