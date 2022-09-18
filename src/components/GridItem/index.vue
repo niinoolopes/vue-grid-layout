@@ -1,6 +1,12 @@
 <template>
   <Transition mode="in-out">
-    <component v-if="currentType" :is="currentType" v-bind="$props.itemData.props" class="overflow-hidden" />
+    <component
+      :is="currentType"
+      :itemId="$props.itemData.id"
+      class="overflow-hidden"
+      v-if="currentType"
+      v-bind="$props.itemData.props"
+    />
   </Transition>
 </template>
 
@@ -26,23 +32,23 @@ export default Vue.extend({
   },
 
   data: () => ({
-    currentType: '',
+    currentType: "",
     debounceCurrentType: 0,
   }),
 
-  created(){
-    this.setCurrentType()
+  created() {
+    this.setCurrentType();
   },
 
   methods: {
-    setCurrentType(){
-      this.currentType = ''
+    setCurrentType() {
+      this.currentType = "";
 
-      clearTimeout(this.debounceCurrentType)
+      clearTimeout(this.debounceCurrentType);
 
       this.debounceCurrentType = setTimeout(() => {
         const type = (this.$props.itemData as GridItemData).type;
-  
+
         const currentTypes: Record<GridItemType, string> = {
           pomodoro: "TypePomodoro",
           alert: "TypeAlert",
@@ -50,19 +56,18 @@ export default Vue.extend({
           page: "TypePage",
           todo: "TypeTodo",
         };
-  
+
         this.currentType = currentTypes[type];
-      }, 250)
-    }
+      }, 250);
+    },
   },
 
   watch: {
     "$props.itemData": {
       handler(aa, bb) {
-        console.log('... aa', aa.type);
-        console.log('... bb', bb.type);
-        
-        this.setCurrentType()
+        if (aa.type !== bb.type) {
+          this.setCurrentType();
+        }
       },
       deep: true,
     },

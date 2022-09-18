@@ -51,6 +51,22 @@ const GridList: GridItem[] = [
       }
     },
   },
+  {
+    x: 0,
+    y: 2,
+    w: 3,
+    h: 2,
+    i: 4,
+    data: {
+      id: '4',
+      active: true,
+      name: 'Todo',
+      type: 'todo',
+      props: {
+        items: []
+      }
+    },
+  },
 ]
 
 export default GridList
