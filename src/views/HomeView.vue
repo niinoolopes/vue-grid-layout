@@ -77,8 +77,6 @@ export default defineComponent({
       return (this.$store.state.grid as GridState).edit;
     },
     gridItems(): GridItem[] {
-      console.log('grid', this.$store.state.grid);
-      
       return (this.$store.state.grid as GridState).items.filter(
         (item) => item.data.active
       );
