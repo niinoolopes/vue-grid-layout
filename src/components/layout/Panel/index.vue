@@ -1,7 +1,7 @@
 <template>
   <div
     v-bind="vBindPanel"
-    class="panel-settings position-absolute z-index-2 border p-2"
+    class="panel-settings position-absolute border p-2"
   >
     <Transition mode="out-in">
       <component :is="currentPanel" />
